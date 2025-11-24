@@ -1,10 +1,13 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import BlogLayout from "./layouts/BlogLayout.tsx";
+import BlogHomePage from "./pages/HomePage.tsx";
+// import { useState } from 'react'
+
+// import reactLogo from './assets/react.svg'
+// import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
 
   // return (
   //   <>
@@ -30,13 +33,18 @@ function App() {
   //     </p>
   //   </>
   // )
-    return (
-        <div className="min-h-screen flex items-center justify-center bg-slate-900">
-            <h1 className="text-3xl font-bold text-white">
-                설정 끝..? ✨
-            </h1>
-        </div>
-    );
+  //   return (
+  //       <div className="min-h-screen flex items-center justify-center bg-slate-900">
+  //           <h1 className="text-3xl font-bold text-white">
+  //               설정 끝..? ✨
+  //           </h1>
+  //       </div>
+  //   );
+  return (
+      <BlogLayout>
+          <BlogHomePage />
+      </BlogLayout>
+  )
 }
 
-export default App
+export default App;
