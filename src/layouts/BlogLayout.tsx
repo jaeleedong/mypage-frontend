@@ -1,34 +1,32 @@
-type BlogLayoutProps = {
-    children: React.ReactNode;
-};
+import { Link, Outlet } from "react-router-dom";
 
-export default function BlogLayout({ children }: BlogLayoutProps) {
+export default function RootLayout() {
     return (
-        <div className="min-h-screen min-w-full bg-slate-900 text-slate-50">
-
-            <header
-                className="w-[1200px] h-[300px] mx-auto border-b border-slate-300 bg-[size:100%_100%]"
-                style={{
-                    backgroundImage: "url('/images/main-banner.jpg')",
-                }}
-            >
-                <div className="h-full items-center px-4">
-                    <div className="font-semibold text-lg text-white">
-                        myblog<span className="text-sky-400">.</span>
-                    </div>
+        <div className="min-h-screen flex flex-col bg-[#f7f5f2] text-slate-900">
+            {/* 헤더 */}
+            <header className="border-b border-slate-200 bg-white/80 backdrop-blur">
+                <div className="max-w-6xl mx-auto flex items-center justify-between h-14 px-4 text-slate-800">
+                    <Link to="/" className="font-semibold tracking-tight text-slate-600">
+                        이동재ㅐㅐㅐㅐㅐㅐ아아아
+                    </Link>
+                    <nav className="flex gap-4 text-sm text-slate-600 [&_a]:text-slate-600">
+                        <Link to="/">Home</Link>
+                        {/* <Link to="/about">About</Link> */}
+                    </nav>
                 </div>
             </header>
 
-            <main className="w-[1200px] px-4 py-8">
-                {/*{children}*/}
-                <div className="h-[1500px] bg-white text-gray-800 border border-dashed border-gray-400 p-4 mt-8">
-                    테스트 콘텐츠 (스크롤 확인용)
+            {/* 메인 컨텐츠 */}
+            <main className="flex-1">
+                <div className="max-w-6xl mx-auto px-4 py-8">
+                    <Outlet />
                 </div>
             </main>
 
-            <footer className="mx-auto w-[1200px] border-t border-slate-300 bg-slate-900">
-                <div className="px-4 py-4 text-xs text-slate-500">
-                    {new Date().getFullYear()} myblog. All rights reserved
+            {/* 푸터 */}
+            <footer className="border-t border-slate-200 bg-white/80">
+                <div className="max-w-6xl mx-auto px-4 py-4 text-xs text-slate-500 text-center">
+                    © {new Date().getFullYear()} My Daily Life
                 </div>
             </footer>
         </div>
