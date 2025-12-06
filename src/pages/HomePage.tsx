@@ -1,4 +1,5 @@
 import {MessageSquare, Phone, Mail, AppWindowMac} from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function BlogHomePage() {
     const categories = [
@@ -24,29 +25,7 @@ export default function BlogHomePage() {
 
     return (
         <div className="space-y-10">
-            {/* 배너 영역 */}
-            <section className="relative rounded-1xl overflow-hidden shadow-sm bg-white">
-                <img
-                    src="../images/1.jpg"
-                    alt="배너"
-                    className="w-full aspect-[16/6] object-cover"
-                />
 
-                {/* 오버레이 텍스트 */}
-                <div className="absolute inset-0 flex items-high justify-end pr-[6%] pb-[4%]">
-                    <div className="text-right">
-                        <p className="text-white/90 text-xl md:text-2xl tracking-[0.2em] drop-shadow">
-
-                        </p>
-                        <h1
-                            className="mt-3 text-white text-4xl md:text-6xl lg:text-7xl drop-shadow"
-                            style={{ fontFamily: '"Great Vibes", cursive' }}
-                        >
-                            My Daily Life
-                        </h1>
-                    </div>
-                </div>
-            </section>
 
             {/* 아래 내용: 카테고리 + 연락처 */}
             <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
@@ -54,18 +33,23 @@ export default function BlogHomePage() {
                 <div className="lg:col-span-8 space-y-4">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                         {categories.map((c) => (
-                            <div key={c.label} className="text-center">
-                                <div className="rounded-2xl overflow-hidden bg-white shadow-sm">
+                            <Link
+                                key={c.label}
+                                to={`/category/${c.type}`}   // ← 클릭하면 카테고리 페이지 이동
+                                className="group text-center block"
+                            >
+                                <div className="rounded-2xl overflow-hidden bg-white shadow-sm transition shadow-slate-200">
                                     <img
                                         src={c.img}
                                         alt={c.label}
-                                        className="w-full aspect-[4/3] object-cover"
+                                        className="w-full aspect-[4/3] object-cover transition-transform duration-300 group-hover:scale-105"
                                     />
                                 </div>
-                                <p className="mt-3 text-sm md:text-base text-slate-700">
+
+                                <p className="mt-3 text-sm md:text-base text-slate-700 group-hover:text-slate-900 transition">
                                     {c.label}
                                 </p>
-                            </div>
+                            </Link>
                         ))}
                     </div>
                 </div>
