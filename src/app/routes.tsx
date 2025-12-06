@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import RootLayout from "../layouts/BlogLayout";
 import HomePage from "../pages/HomePage";
 import NotFoundPage from "../pages/NotFoundPage";
+import CategoryPage from "../pages/CategoryPage";
 
 export const router = createBrowserRouter([
     {
@@ -10,7 +11,7 @@ export const router = createBrowserRouter([
         errorElement: <NotFoundPage />,
         children: [
             { index: true, element: <HomePage /> },
-            // { path: "about", element: <AboutPage /> },
+            { path: "category/:type", element: <CategoryPage /> },
         ],
     },
 ]);
