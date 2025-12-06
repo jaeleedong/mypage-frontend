@@ -1,4 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
+import Banner from "../components/blog/Banner";
+
 
 export default function RootLayout() {
     return (
@@ -15,6 +17,8 @@ export default function RootLayout() {
                     </nav>
                 </div>
             </header>
+
+            <Banner />
 
             {/* 메인 컨텐츠 */}
             <main className="flex-1">
