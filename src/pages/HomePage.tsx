@@ -6,20 +6,23 @@ export default function BlogHomePage() {
         {
             label: "사진 기록",
             img: "../images/6.jpg",
+            key: "picture"
 
         },
         {
             label: "생각 기록",
             img: "https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=1200&auto=format&fit=crop",
+            key: "tought"
         },
         {
             label: "독서 기록",
             img: "https://images.unsplash.com/photo-1495446815901-a7297e633e8d?q=80&w=1200&auto=format&fit=crop",
-            // img: "../images/4.jpg",
+            key: "books"
         },
         {
             label: "여행 기록",
             img: "../images/3.jpg",
+            key: "travel"
         },
     ];
 
@@ -35,7 +38,7 @@ export default function BlogHomePage() {
                         {categories.map((c) => (
                             <Link
                                 key={c.label}
-                                to={`/category/${c.type}`}   // ← 클릭하면 카테고리 페이지 이동
+                                to={`/category/${c.key}`}   // ← 클릭하면 카테고리 페이지 이동
                                 className="group text-center block"
                             >
                                 <div className="rounded-2xl overflow-hidden bg-white shadow-sm transition shadow-slate-200">
